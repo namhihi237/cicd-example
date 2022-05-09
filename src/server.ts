@@ -8,4 +8,4 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/user', userRoutes);
 
-module.exports = app;
+export default app;

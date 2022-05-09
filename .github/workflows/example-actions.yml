@@ -10,3 +10,7 @@ jobs:
           node-version: '16'
       - run: npm install -g bats
       - run: bats -v
+      - name: Install dependencies
+        run: npm ci #Clean install your package dependencies
+      - name: Test
+        run: npm run test
