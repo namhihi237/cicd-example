@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest #Configures the job to run on the latest version of an Ubuntu Linux runner.
     steps:
       - uses: actions/checkout@v3 # checkout repository
+        with:
+          fetch-deep: 0
+      - uses: wagoid/commitlint-github-action@v4
       - uses: actions/setup-node@v3 # install node
         with:
           node-version: '16'
