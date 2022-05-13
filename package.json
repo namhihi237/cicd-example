@@ -7,7 +7,12 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "ts-node-dev --no-notify --respawn --transpile-only src/index.ts",
-		"test": "jest"
+		"test": "jest",
+		"build": "npm run clean && npm run build-ts",
+		"clean": "rimraf dist",
+		"build-ts": "tsc",
+		"serve": "node dist/index.js",
+		"start": "npm run build && npm run serve"
 	},
 	"dependencies": {
 		"express": "^4.17.3"

@@ -1,0 +1,7 @@
+.vscode
+node_modules
+test
+.env.example
+.gitignore
+README.md
+dist
