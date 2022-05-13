@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v4
   build:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: docker/login-action@v1
