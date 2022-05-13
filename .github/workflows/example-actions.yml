@@ -25,7 +25,7 @@ jobs:
       - uses: wagoid/commitlint-github-action@v4
   build:
     run-on: ubuntu-latest
-    step:
+    steps:
       - uses: actions/checkout@v3
       - uses: docker/login-action@v1
         with:
