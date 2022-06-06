@@ -19,7 +19,6 @@
 		"dotenv": "^16.0.1",
 		"express": "^4.17.3",
 		"mysql2": "^2.3.3",
-		"rc": "^1.2.8",
 		"sequelize": "^6.20.1",
 		"sequelize-cli": "^6.4.1",
 		"typescript-tslint-plugin": "^1.0.2"

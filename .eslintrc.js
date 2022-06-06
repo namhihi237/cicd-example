@@ -10,9 +10,11 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    "prettier"
   ],
-
+  ignorePatterns: ['__tests__/*', 'dist/*'],
+  rules: {
+    'no-console': 'error'
+  },
   env: {
     node: true,
     es2020: true,
