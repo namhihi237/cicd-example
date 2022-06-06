@@ -21,7 +21,8 @@
 		"outDir": "dist/",
 		"baseUrl": "src/",
 		"listFiles": false,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"plugins": [{ "name": "typescript-tslint-plugin" }]
 	},
 	"include": ["src/**/*"],
 	"exclude": ["node_modules", "__tests__/**/*"]
