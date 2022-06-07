@@ -7,7 +7,7 @@ export interface UserAttributes {
 }
 
 // declare id is optional
-export interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+export type UserCreationAttributes = Optional<UserAttributes, 'id'>;
 
 const UserDefinition = {
 	id: {
@@ -18,6 +18,10 @@ const UserDefinition = {
 	},
 	name: {
 		type: DataTypes.STRING,
+		allowNull: false,
+	},
+	age: {
+		type: DataTypes.INTEGER,
 		allowNull: false,
 	},
 };
@@ -32,5 +36,11 @@ User.init(UserDefinition, {
 	sequelize,
 	tableName: 'users', // name table in mysql
 	underscored: true, // use underscore instead camelCase
-	timestamps: false, // disable createAt and updateAt
+	timestamps: false, // disable createAt and updateAt,
+	indexes: [
+		{
+			unique: true,
+			fields: ['id'],
+		},
+	],
 });
