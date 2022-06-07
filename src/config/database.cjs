@@ -1,5 +1,4 @@
-import dotenv from 'dotenv';
-dotenv.config();
+require('dotenv').config();
 
 const host = process.env.DB_HOST;
 const username = process.env.DB_USER;
@@ -7,7 +6,7 @@ const password = process.env.DB_PASSWORD || '';
 const database = process.env.DB_NAME;
 const url = process.env.DB_URL;
 
-export default {
+module.exports = {
 	development: {
 		username,
 		password,

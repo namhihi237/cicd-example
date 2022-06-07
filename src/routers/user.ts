@@ -1,10 +1,20 @@
 import { User } from './../models/user';
+import { op } from '../models';
 import { Router, Request, Response, NextFunction } from 'express';
 export const userRoutes: Router = Router();
 
-userRoutes.get('/', async (req: Request, res: Response) => {
+userRoutes.get('/', async (req: Request, res: Response, next: NextFunction) => {
 	try {
-		let users = await User.findAll();
+		const { next = 0 } = req.query;
+		const perPage = 20;
+		let users = await User.findAll({
+			where: {
+				id: {
+					[op.gt]: +next,
+				},
+			},
+			limit: perPage,
+		});
 
 		users = JSON.parse(JSON.stringify(users));
 
@@ -13,11 +23,6 @@ userRoutes.get('/', async (req: Request, res: Response) => {
 			data: users,
 		});
 	} catch (error) {
-		console.log(error);
-
-		return res.status(500).json({
-			message: 'fail',
-			data: error,
-		});
+		next(error);
 	}
 });

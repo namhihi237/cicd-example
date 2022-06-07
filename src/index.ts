@@ -1,12 +1,11 @@
 import app from './app';
-import http from 'http';
+import http, { Server } from 'http';
 
-import { config } from './config';
-const PORT = config.get('port');
-
+import { environment } from './config';
+const PORT: number = environment.port;
 //Separate Express 'app' and 'server'
-const server = http.createServer(app);
-
+const server: Server = http.createServer(app);
 server.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
+	// eslint-disable-next-line no-console
+	console.info(`Server is running on port ${PORT}`);
 });

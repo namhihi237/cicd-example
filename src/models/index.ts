@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 const basename = path.dirname(__filename);
-import { Sequelize } from 'sequelize';
+import { Sequelize, Op } from 'sequelize';
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/database.js')[env];
+const config = require('../config/database.cjs')[env];
 class Database {
 	private _models: any;
 	private _sequelize: Sequelize;
@@ -44,3 +44,4 @@ const database = new Database();
 
 export const models = database.getModels();
 export const sequelize = database.getSequelize();
+export const op = Op;
